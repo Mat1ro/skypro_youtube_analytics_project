@@ -1,17 +1,10 @@
-from src.channel import Channel
+from src.pl_video import PLVideo
+from src.video import Video
+
 
 if __name__ == '__main__':
     # Создаем два экземпляра класса
-    moscowpython = Channel('UC-OVMPlMA3-YCIeg4z5z23A')
-    highload = Channel('UCwHL6WHUarjGfUM_586me8w')
-
-    # Используем различные магические методы
-    print(moscowpython)  # 'MoscowPython (https://www.youtube.com/channel/UC-OVMPlMA3-YCIeg4z5z23A)'
-    print(moscowpython + highload)  # 100100
-    print(moscowpython - highload)  # -48300
-    print(highload - moscowpython)  # 48300
-    print(moscowpython > highload)  # False
-    print(moscowpython >= highload)  # False
-    print(moscowpython < highload)  # True
-    print(moscowpython <= highload)  # True
-    print(moscowpython == highload)  # False
+    video1 = Video('AWX4JnAnjBE')  # 'AWX4JnAnjBE' - это id видео из ютуб
+    video2 = PLVideo('4fObz_qw9u4', 'PLv_zOGKKxVph_8g2Mqc3LMhj0M_BfasbC')
+    assert str(video1) == 'GIL в Python: зачем он нужен и как с этим жить'
+    assert str(video2) == 'MoscowPython Meetup 78 - вступление'

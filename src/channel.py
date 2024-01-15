@@ -48,8 +48,6 @@ class Channel:
     def __gt__(self, other):
         return self.subscribers > other.subscribers
 
-
-
     @property
     def channel_id(self):
         return self._channel_id
