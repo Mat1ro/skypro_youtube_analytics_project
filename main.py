@@ -1,10 +1,15 @@
-from src.pl_video import PLVideo
-from src.video import Video
+import datetime
 
+from src.playlist import PlayList
 
 if __name__ == '__main__':
-    # Создаем два экземпляра класса
-    video1 = Video('AWX4JnAnjBE')  # 'AWX4JnAnjBE' - это id видео из ютуб
-    video2 = PLVideo('4fObz_qw9u4', 'PLv_zOGKKxVph_8g2Mqc3LMhj0M_BfasbC')
-    assert str(video1) == 'GIL в Python: зачем он нужен и как с этим жить'
-    assert str(video2) == 'MoscowPython Meetup 78 - вступление'
+    pl = PlayList('PLv_zOGKKxVpj-n2qLkEM2Hj96LO6uqgQw')
+    assert pl.title == "Moscow Python Meetup №81"
+    assert pl.url == "https://www.youtube.com/playlist?list=PLv_zOGKKxVpj-n2qLkEM2Hj96LO6uqgQw"
+
+    duration = pl.total_duration
+    assert str(duration) == "1:49:52"
+    assert isinstance(duration, datetime.timedelta)
+    assert duration.total_seconds() == 6592.0
+
+    assert pl.show_best_video() == "https://youtu.be/cUGyMzWQcGM"
